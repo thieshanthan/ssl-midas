@@ -1,3 +1,5 @@
+import os
+import glob
 import torch
 from diffusers import StableDiffusionDepth2ImgPipeline
 from PIL import Image
@@ -48,7 +50,7 @@ def get_true_image(fp):
 
 
 if __name__ == "__main__":
-    im_fps = ["data/1.png", "data/2.png", "data/3.png"]
+    im_fps = glob.glob("data/*.jpg")
     for fp in im_fps:
         im = get_true_image(fp)
         depth = get_depth(im)
